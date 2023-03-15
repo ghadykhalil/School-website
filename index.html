@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>School website</title>
+  <link rel="stylesheet" href="./styles/site.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/logo.png" />
+
+
+</head>
+
+<body>
+  <div class="header">
+    <div id="particles-js"></div>
+    <div class="container">
+      <a href="index.html" class="logo">Harvard School</a>
+      <div class="header-button">
+        <a href="/" class="link-button">Home</a>
+        <a href="#contact" class="link-button">Contact Us</a>
+        <a href="register.html" class="link-button">Register</a>
+        <a href="login.html" class="link-button">Login</a>
+      </div>
+    </div>
+    <div class="line"></div>
+  </div>
+  <div class="mySlides fade" >
+    <img src="./assets/img1.jpg" style="display: block; margin: auto;" alt="photo1" />
+    <div class="text">Modern school</div>
+  </div>
+
+  <div class="mySlides fade">
+    <img src="./assets/img2.jpg" style="display: block; margin: auto;" alt="photo2" />
+    <div class="text">A safe space for children</div>
+  </div>
+
+  <div class="mySlides fade">
+    <img src="./assets/img3.jpg" style="display: block; margin: auto;" alt="photo3" />
+    <div class="text">Modern teaching</div>
+  </div>
+
+  <div class="bio">
+    <h1>Our Mission</h1>
+    The Mission of Harvard School for Children is to empower our children to achieve their greatest potential both as
+    students and as members of their communities.
+  </div>
+
+  <div class="box">
+    <div class="inside">
+      <h1>Core Values</h1>
+      <ul>
+        <li>Fostering Academic Excellence</li>
+        <li>Nurturing the Whole Child</li>
+        <li>Ensuring a Safe Environment</li>
+        <li>Developing Critical Thinkers</li>
+        <li>Building Partnership</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bio">
+    <h1>Welcome to a whole new world of learning!</h1>
+    Our elementary school building currently offers 18 classrooms, all at least 800 square feet in size and filled with
+    natural light and color, as well as an expanded cafeteria and several new spaces designed for small group learning
+    and administrative offices. We have a gymnasium, a music room and an art studio in our school building and we have
+    recently added a technology lab.
+
+  </div>
+
+  <div id="contact" class="contact-us">
+
+    <div class="contact-us-container">
+      <h1>Contact us</h1>
+      <form method="post">
+        First Name:<input type="text" id="fname" name="firstname" placeholder="Enter first name..." maxlength="20"
+          pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" required><br />
+        Last Name:<input type="text" id="lname" name="lastname" placeholder="Enter last name..." maxlength="20"
+          pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" required><br />
+        Email:<input type="email" name="email" placeholder="Enter valid email..." maxlength="30" required><br />
+        Adress:<input type="text" name="adress" placeholder="Enter your home adress..." maxlength="50" required><br />
+        Subject:<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"
+          required></textarea><br />
+        <input type="submit" value="Submit">
+
+      </form>
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+
+</body>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 10, density: { enable: true, value_area: 400 } },
+      color: { value: "#fb0" },
+      shape: {
+        type: "polygon",
+        stroke: { width: 0, color: "#000" },
+        polygon: { nb_sides: 6 },
+        image: { src: "img/github.svg", width: 100, height: 100 },
+      },
+      opacity: {
+        value: 0.8,
+        random: true,
+        anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+      },
+      size: {
+        value: 60,
+        random: false,
+        anim: { enable: true, speed: 10, size_min: 40, sync: false },
+      },
+      line_linked: {
+        enable: false,
+        distance: 200,
+        color: "#ffffff",
+        opacity: 1,
+        width: 2,
+      },
+      move: {
+        enable: true,
+        speed: 8,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: { enable: false, rotateX: 600, rotateY: 1200 },
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: false, mode: "grab" },
+        onclick: { enable: false, mode: "push" },
+        resize: true,
+      },
+      modes: {
+        grab: { distance: 400, line_linked: { opacity: 1 } },
+        bubble: {
+          distance: 400,
+          size: 40,
+          duration: 2,
+          opacity: 8,
+          speed: 3,
+        },
+        repulse: { distance: 200, duration: 0.4 },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 },
+      },
+    },
+    retina_detect: true,
+  });
+  requestAnimationFrame(update);
+</script>
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+
+  showSlides();
+
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3500);
+  }
+</script>
+
+</html>
